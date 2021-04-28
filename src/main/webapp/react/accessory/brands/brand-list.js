@@ -50,15 +50,15 @@ const SectionList = () => {
                         </div>
                     </div>
                 </li>
-            {
-                sections.map(section =>
-                    <li key={section.id} className="list-group-item">
-                        <SectionEditorInline key={section._id}
-                                             updateSection={updateSection}
-                                             deleteSection={deleteSection}
-                                             section={section}/>
-                    </li>)
-            }
+                {
+                    sections.map(section =>
+                        <li key={section.id} className="list-group-item">
+                            <SectionEditorInline key={section._id}
+                                                 updateSection={updateSection}
+                                                 deleteSection={deleteSection}
+                                                 section={section}/>
+                        </li>)
+                }
             </ul>
         </div>
     )

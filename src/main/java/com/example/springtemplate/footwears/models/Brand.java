@@ -9,7 +9,6 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
     @ManyToOne
     private Footwear footwear;
 

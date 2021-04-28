@@ -1,43 +1,43 @@
-import courseService from "./course-service"
+import footwearService, {findFootwearById} from "./footwear-service"
 
 const {useState, useEffect} = React
 const {useParams, useHistory} = window.ReactRouterDOM;
-const COURSE_URL = "http://localhost:8080/api/courses"
+const FOOTWEAR_URL = "http://localhost:8080/api/footwears"
 
-const CourseEditorForm = () => {
-    const [course, setCourse] = useState({})
+const FootwearEditorForm = () => {
+    const [footwear, setFootwear] = useState({})
     const {id} = useParams()
     const history = useHistory()
     useEffect(() => {
-        findCourseById(id)
+        findFootwearById(id)
     }, []);
-    const findCourseById = (id) =>
-        courseService.findCourseById(id)
-            .then(course => setCourse(course))
-    const updateCourse = (id, newCourse) =>
-        courseService.updateCourse(id, newCourse)
+    const findFootwearById = (id) =>
+        courseService.findFootwearById(id)
+            .then(footwear => setFootwear(footwear))
+    const updateFootwear = (id, newFootwear) =>
+        footwearService.updateFootwear(id, newFootwear)
             .then(() => history.goBack())
-    const deleteCourse = (id) =>
-        courseService.deleteCourse(id)
+    const deleteFootwear = (id) =>
+        footwearService.deleteFootwear(id)
             .then(() => history.goBack())
-    
+
     return (
         <div>
             <h2>
-                Course Editor
+                Footwear Editor
             </h2>
             <label>Id</label>
             <input
                 className="form-control margin-bottom-10px"
                 readOnly={true}
-                value={course.id}/>
-            <label>Title</label>
+                value={footwear.id}/>
+            <label>Name</label>
             <input
                 className="form-control margin-bottom-10px"
-                onChange={(e) => setCourse(course => ({...course, title: e.target.value}))}
-                value={course.title}/>
+                onChange={(e) => setFootwear(footwear => ({...footwear, name: e.target.value}))}
+                value={footwear.name}/>
             <button
-                onClick={() => updateCourse(course.id, course)}
+                onClick={() => updateFootwear(footwear.id, footwear)}
                 className="btn btn-success btn-block">Save</button>
             <button
                 onClick={() => {
@@ -45,10 +45,10 @@ const CourseEditorForm = () => {
                 }}
                 className="btn btn-danger btn-block margin-left-10px">Cancel</button>
             <button
-                onClick={() => deleteCourse(course.id)}
+                onClick={() => deleteFootwear(footwear.id)}
                 className="btn btn-danger btn-block margin-left-10px">Delete</button>
         </div>
     )
 }
 
-export default CourseEditorForm
+export default FootwearEditorForm

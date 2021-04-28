@@ -41,10 +41,10 @@ const SectionEditorInline = ({section, deleteSection, updateSection}) => {
                     </div>
                     <div className="col">
                         <label>
-                        <input
-                            type="checkbox"
-                            checked={sectionCopy.online}
-                            onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy, online: e.target.checked}))}/>
+                            <input
+                                type="checkbox"
+                                checked={sectionCopy.online}
+                                onChange={(e)=>setSectionCopy(sectionCopy => ({...sectionCopy, online: e.target.checked}))}/>
                             &nbsp;
                             Online
                         </label>

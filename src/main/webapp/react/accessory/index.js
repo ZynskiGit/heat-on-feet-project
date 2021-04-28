@@ -4,7 +4,7 @@ import CourseEditorForm from "./courses/course-editor-form";
 import SectionEditorForm from "./sections/section-editor-form";
 
 const {HashRouter, Link, Route} = window.ReactRouterDOM;
- 
+
 const App = () => {
     console.log(window.ReactRouterDOM)
     return (

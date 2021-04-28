@@ -10,10 +10,13 @@ public class Footwear {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition="tinyint(1) default 1")
     private boolean active;
     private Integer price;
     private String name;
     private String style;
+    @ManyToOne
+    private User user;
 
     @OneToMany(mappedBy = "footwear")
     private List<Color> colors;

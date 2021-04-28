@@ -1,11 +1,11 @@
 const {useState, useEffect} = React
 const {useParams} = window.ReactRouterDOM;
-const COURSE_URL = "http://localhost:8080/api/courses"
+const FOOTWEAR_URL = "http://localhost:8080/api/footwears"
 
-const CourseEditor = (
+const FootwearEditor = (
     {
         schema = {
-            title: {type: "text"},
+            name: {type: "text"},
             // id: {type: "text"}
         }
     }) => {
@@ -15,12 +15,12 @@ const CourseEditor = (
         findById(id)
     }, []);
     const findById = (id) =>
-        fetch(`${COURSE_URL}/${id}`)
+        fetch(`${FOOTWEAR_URL}/${id}`)
             .then(response => response.json())
             .then(item => setItem(item))
     return (
         <div>
-            <h2>Course Editor {id}</h2>
+            <h2>Footwear Editor {id}</h2>
             {JSON.stringify(item)}
             <ul className="list-group">
                 {
@@ -29,7 +29,7 @@ const CourseEditor = (
                         return(
                             <li>
                                 {
-                                    
+
                                 }
                                 <input
                                     className="form-control"
@@ -44,4 +44,4 @@ const CourseEditor = (
     )
 }
 
-export default CourseEditor
+export default FootwearEditor
